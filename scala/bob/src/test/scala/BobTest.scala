@@ -34,12 +34,10 @@ class  BobTest extends FunSuite with Matchers {
   }
 
   test("talking forcefully") {
-    pending
     Bob.response("Let's go make out behind the gym!") should be("Whatever.")
   }
 
   test("using acronyms in regular speech") {
-    pending
     Bob.response("It's OK if you don't want to go to the DMV.") should be(
       "Whatever.")
   }
@@ -51,12 +49,10 @@ class  BobTest extends FunSuite with Matchers {
   }
 
   test("shouting numbers") {
-    pending
     Bob.response("1, 2, 3 GO!") should be("Whoa, chill out!")
   }
 
   test("no letters") {
-    pending
     Bob.response("1, 2, 3") should be("Whatever.")
   }
 
@@ -66,18 +62,15 @@ class  BobTest extends FunSuite with Matchers {
   }
 
   test("shouting with special characters") {
-    pending
     Bob.response("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!") should be(
       "Whoa, chill out!")
   }
 
   test("shouting with no exclamation mark") {
-    pending
     Bob.response("I HATE THE DMV") should be("Whoa, chill out!")
   }
 
   test("statement containing question mark") {
-    pending
     Bob.response("Ending with ? means a question.") should be("Whatever.")
   }
 
@@ -107,14 +100,12 @@ class  BobTest extends FunSuite with Matchers {
   }
 
   test("multiple line question") {
-    pending
     Bob.response("""
 Does this cryogenic chamber make me look fat?
 No.""") should be("Whatever.")
   }
 
   test("starting with whitespace") {
-    pending
     Bob.response("         hmmmmmmm...") should be("Whatever.")
   }
 
@@ -131,7 +122,6 @@ No.""") should be("Whatever.")
   }
 
   test("non-question ending with whitespace") {
-    pending
     Bob.response("This is a statement ending with whitespace      ") should be(
       "Whatever.")
   }
