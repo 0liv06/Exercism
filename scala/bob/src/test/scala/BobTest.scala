@@ -18,18 +18,15 @@ class  BobTest extends FunSuite with Matchers {
   }
 
   test("asking a question") {
-    pending
     Bob.response("Does this cryogenic chamber make me look fat?") should be(
       "Sure.")
   }
 
   test("asking a numeric question") {
-    pending
     Bob.response("You are, what, like 15?") should be("Sure.")
   }
 
   test("asking gibberish") {
-    pending
     Bob.response("fffbbcbeab?") should be("Sure.")
   }
 
@@ -57,7 +54,6 @@ class  BobTest extends FunSuite with Matchers {
   }
 
   test("question with no letters") {
-    pending
     Bob.response("4?") should be("Sure.")
   }
 
@@ -75,12 +71,10 @@ class  BobTest extends FunSuite with Matchers {
   }
 
   test("non-letters with question") {
-    pending
     Bob.response(":) ?") should be("Sure.")
   }
 
   test("prattling on") {
-    pending
     Bob.response("Wait! Hang on. Are you going to be OK?") should be("Sure.")
   }
 
@@ -110,7 +104,6 @@ No.""") should be("Whatever.")
   }
 
   test("ending with whitespace") {
-    pending
     Bob.response("Okay if like my  spacebar  quite a bit?   ") should be(
       "Sure.")
   }
