@@ -1,4 +1,4 @@
-object SumOfMultiples extends App {
+object SumOfMultiples {
 
   def isMultiple(a: Int, b: Int): Int = {
     if (a % b == 0) a
