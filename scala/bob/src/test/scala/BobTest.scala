@@ -8,12 +8,10 @@ class  BobTest extends FunSuite with Matchers {
   }
 
   test("shouting") {
-    pending
     Bob.response("WATCH OUT!") should be("Whoa, chill out!")
   }
 
   test("shouting gibberish") {
-    pending
     Bob.response("FCECDFCAAB") should be("Whoa, chill out!")
   }
 
@@ -40,7 +38,6 @@ class  BobTest extends FunSuite with Matchers {
   }
 
   test("forceful question") {
-    pending
     Bob.response("WHAT THE HELL WERE YOU THINKING?") should be(
       "Calm down, I know what I'm doing!")
   }
@@ -79,17 +76,14 @@ class  BobTest extends FunSuite with Matchers {
   }
 
   test("silence") {
-    pending
     Bob.response("") should be("Fine. Be that way!")
   }
 
   test("prolonged silence") {
-    pending
     Bob.response("          ") should be("Fine. Be that way!")
   }
 
   test("alternate silence") {
-    pending
     Bob.response("										") should be("Fine. Be that way!")
   }
 
@@ -109,7 +103,6 @@ No.""") should be("Whatever.")
   }
 
   test("other whitespace") {
-    pending
     Bob.response("""
                  	""") should be("Fine. Be that way!")
   }
