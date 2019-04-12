@@ -5,10 +5,12 @@ object Bob {
   def isAskingQuestion(statement: String): Boolean = isMatching(statement, ".+\\?")
 
   def response(statement: String): String = {
-    if (statement.trim.isEmpty) "Fine. Be that way!"
-    else if (isShouting(statement) && isAskingQuestion(statement)) "Calm down, I know what I'm doing!"
-    else if (isShouting(statement)) "Whoa, chill out!"
-    else if (isAskingQuestion(statement)) "Sure."
-    else "Whatever."
+    (statement.trim.isEmpty, isShouting(statement), isAskingQuestion(statement)) match {
+      case (true, _, _) => "Fine. Be that way!"
+      case (_, true, true) => "Calm down, I know what I'm doing!"
+      case (_, true, false) => "Whoa, chill out!"
+      case (_, false, true) => "Sure."
+      case _ => "Whatever."
+    }
   }
 }
