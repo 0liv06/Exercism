@@ -1,10 +1,10 @@
 import scala.util.matching.Regex
 
 object Bob {
-  val silence: Regex = "([\\s]*)".r
-  val shouting: Regex = "([^a-z]+[A-Z]+.+)".r
-  val question: Regex = "(.+\\?)\\s*".r
-  val forcefulQuestion: Regex = "([A-Z\\s]+[?])".r
+  private val silence: Regex = "([\\s]*)".r
+  private val shouting: Regex = "([^a-z]+[A-Z]+.+)".r
+  private val question: Regex = "(.+\\?)\\s*".r
+  private val forcefulQuestion: Regex = "([A-Z\\s]+[?])".r
 
   def response(statement: String): String = {
     statement match {
