@@ -26,12 +26,31 @@ object BookStore {
 
       val strategy = books.count(f => books.indexOf(f) == books.lastIndexOf(f)) % 2 == 0 && books.size % 2 == 0
       val groups = build(books.head, books.tail ++ List(0), 0, List(List()), strategy)
-      val group2 = build(books.head, books.tail ++ List(0), 0, List(List()), !strategy)
-      val cost = groups.map(x => x.size * bookPrice - ((bookPrice * x.size) * discounts(x.size)))
-      val cost2 = group2.map(x => x.size * bookPrice - ((bookPrice * x.size) * discounts(x.size)))
 
-      if (cost.sum.toInt < cost2.sum.toInt) cost.sum.toInt
-      else cost2.sum.toInt
+      val group2 = build(books.head, books.tail ++ List(0), 0, List(List()), !strategy)
+
+
+      val f = groups.flatten
+
+      @tailrec
+      def equalizeGroups(list: List[Int], take: Int, res: List[List[Int]]): List[List[Int]] = {
+        if (list.isEmpty) res
+        else equalizeGroups(list.slice(take, list.size), take, res ++ List(list.slice(0, take)))
+      }
+
+      val b = {
+        if (f.size % 4 == 0) equalizeGroups(f, f.size / 4, List())
+        else List()
+      }
+
+      val cost = groups.map(x => x.size * bookPrice - ((bookPrice * x.size) * discounts(x.size))).sum
+      val cost2 = group2.map(x => x.size * bookPrice - ((bookPrice * x.size) * discounts(x.size))).sum
+      val cost3 = b.map(x => x.size * bookPrice - ((bookPrice * x.size) * discounts(x.size))).sum
+
+      val fin = List(cost, cost2, cost3)
+      val k = fin.filter(!_.equals(0.0)).sortWith(_ > _)
+
+      k.last.toInt
     }
   }
 }

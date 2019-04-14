@@ -56,7 +56,6 @@ class BookStoreTest extends FunSuite with Matchers {
   }
 
   test("Four groups of four are cheaper than two groups each of five and three") {
-    pending
     BookStore.total(List(1, 1, 2, 2, 3, 3, 4, 5, 1, 1, 2, 2, 3, 3, 4, 5)) should be (10240)
   }
 }
