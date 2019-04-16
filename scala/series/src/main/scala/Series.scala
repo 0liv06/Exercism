@@ -1,3 +1,3 @@
 object Series {
-  def slices(slice: Int, series: String): List[List[Int]] = (0 to series.length - slice).map(i => series.slice(i, i + slice).map(c => c.asDigit).toList).toList
+  def slices(slice: Int, series: String): List[List[Int]] = (0 until series.length).sliding(slice).map(_.toList).toList
 }
