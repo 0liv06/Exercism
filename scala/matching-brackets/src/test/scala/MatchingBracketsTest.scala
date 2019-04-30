@@ -36,12 +36,10 @@ class MatchingBracketsTest extends FunSuite with Matchers {
   }
 
   test("several paired brackets") {
-    pending
     MatchingBrackets.isPaired("{}[]") should be(true)
   }
 
   test("paired and nested brackets") {
-    pending
     MatchingBrackets.isPaired("([{}({}[])])") should be(true)
   }
 
@@ -50,7 +48,6 @@ class MatchingBracketsTest extends FunSuite with Matchers {
   }
 
   test("unpaired and nested brackets") {
-    pending
     MatchingBrackets.isPaired("([{])") should be(false)
   }
 
@@ -63,7 +60,6 @@ class MatchingBracketsTest extends FunSuite with Matchers {
   }
 
   test("complex latex expression") {
-    pending
     MatchingBrackets.isPaired(
       """\left(\begin{array}{cc} \frac{1}{3} & x\ \mathrm{e}^{x} &... x^2 \end{array}\right)""") should be(
       true)
